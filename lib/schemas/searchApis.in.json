@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "required": false,
+            "type": "string"
+        },
+        "state": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "PUBLISHED",
+                "UNPUBLISHED"
+            ],
+            "default": "ALL"
+        },
+        "tag": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+        },
+        "sort": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NAME",
+                "UPDATED",
+                "CREATED",
+                "OWNER"
+            ],
+            "default": "NAME"
+        },
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "owner": {
+            "required": true,
+            "type": "string"
+        },
+        "domain": {
+            "required": true,
+            "type": "string"
+        },
+        "isPrivate": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "version": {
+            "required": true,
+            "type": "string"
+        },
+        "force": {
+            "required": false,
+            "type": "boolean"
+        },
+        "requestBody": {
+            "type": "string"
+        }
+    }
+}

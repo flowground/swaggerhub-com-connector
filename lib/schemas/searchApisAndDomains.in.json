@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "specType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "API",
+                "DOMAIN",
+                "ANY"
+            ],
+            "default": "ANY"
+        },
+        "visibility": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "PUBLIC",
+                "PRIVATE",
+                "ANY"
+            ],
+            "default": "ANY"
+        },
+        "state": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ALL",
+                "PUBLISHED",
+                "UNPUBLISHED"
+            ],
+            "default": "ALL"
+        },
+        "owner": {
+            "required": false,
+            "type": "string"
+        },
+        "query": {
+            "required": false,
+            "type": "string"
+        },
+        "page": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+        },
+        "sort": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "NAME",
+                "UPDATED",
+                "CREATED",
+                "OWNER"
+            ],
+            "default": "NAME"
+        },
+        "order": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "ASC",
+                "DESC"
+            ],
+            "default": "ASC"
+        }
+    }
+}

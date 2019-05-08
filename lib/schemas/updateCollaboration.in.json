@@ -1,0 +1,254 @@
+{
+    "type": "object",
+    "properties": {
+        "owner": {
+            "required": true,
+            "type": "string"
+        },
+        "api": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "hint": {
+                    "properties": {
+                        "type": {
+                            "description": "type identifier of the managed entity",
+                            "format": "uuid",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "members": {
+                    "items": {
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "startTime": {
+                                        "format": "date-time",
+                                        "readOnly": true,
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "readOnly": true,
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "readOnly": true,
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "blocked": {
+                                        "readOnly": true,
+                                        "type": "boolean"
+                                    },
+                                    "donotdisturb": {
+                                        "readOnly": true,
+                                        "type": "boolean"
+                                    },
+                                    "roles": {
+                                        "items": {
+                                            "enum": [
+                                                "EDIT",
+                                                "COMMENT",
+                                                "VIEW"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "required": [
+                                    "roles"
+                                ],
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "owner": {
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "owners": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pendingMembers": {
+                    "items": {
+                        "allOf": [
+                            {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "startTime": {
+                                        "format": "date-time",
+                                        "readOnly": true,
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "readOnly": true,
+                                        "type": "string"
+                                    },
+                                    "uuid": {
+                                        "readOnly": true,
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "type": "object"
+                            },
+                            {
+                                "properties": {
+                                    "blocked": {
+                                        "readOnly": true,
+                                        "type": "boolean"
+                                    },
+                                    "donotdisturb": {
+                                        "readOnly": true,
+                                        "type": "boolean"
+                                    },
+                                    "roles": {
+                                        "items": {
+                                            "enum": [
+                                                "EDIT",
+                                                "COMMENT",
+                                                "VIEW"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "required": [
+                                    "roles"
+                                ],
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "teams": {
+                    "items": {
+                        "allOf": [
+                            {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "startTime": {
+                                                "format": "date-time",
+                                                "readOnly": true,
+                                                "type": "string"
+                                            },
+                                            "title": {
+                                                "readOnly": true,
+                                                "type": "string"
+                                            },
+                                            "uuid": {
+                                                "readOnly": true,
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "properties": {
+                                            "blocked": {
+                                                "readOnly": true,
+                                                "type": "boolean"
+                                            },
+                                            "donotdisturb": {
+                                                "readOnly": true,
+                                                "type": "boolean"
+                                            },
+                                            "roles": {
+                                                "items": {
+                                                    "enum": [
+                                                        "EDIT",
+                                                        "COMMENT",
+                                                        "VIEW"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            }
+                                        },
+                                        "required": [
+                                            "roles"
+                                        ],
+                                        "type": "object"
+                                    }
+                                ]
+                            },
+                            {
+                                "properties": {
+                                    "members": {
+                                        "items": {
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "startTime": {
+                                                    "format": "date-time",
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "title": {
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                },
+                                                "uuid": {
+                                                    "readOnly": true,
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "hint"
+            ],
+            "type": "object"
+        }
+    }
+}

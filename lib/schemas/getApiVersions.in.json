@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "owner": {
+            "required": true,
+            "type": "string"
+        },
+        "api": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

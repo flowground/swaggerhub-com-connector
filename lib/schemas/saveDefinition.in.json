@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "owner": {
+            "required": true,
+            "type": "string"
+        },
+        "api": {
+            "required": true,
+            "type": "string"
+        },
+        "isPrivate": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        },
+        "version": {
+            "required": false,
+            "type": "string"
+        },
+        "oas": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "2.0",
+                "3.0.0",
+                "3.0.1"
+            ],
+            "default": "2.0"
+        },
+        "force": {
+            "required": false,
+            "type": "boolean"
+        },
+        "requestBody": {
+            "type": "string"
+        }
+    }
+}

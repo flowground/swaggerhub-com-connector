@@ -1,0 +1,454 @@
+{
+    "title": "SwaggerHub Registry",
+    "description": "# Introduction\nThis is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.\n\n# Authentication\nUse your personal API Key: you can find it by visiting the [API Key page](https://app.swaggerhub.com/settings/apiKey).\n",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/swaggerhub.com/1.0.47/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.swaggerhub.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "TokenSecured": {
+                "label": "Authorization (TokenSecured)",
+                "viewClass": "TextFieldView",
+                "note": "Specify your SwaggerHub API key found in https://app.swaggerhub.com/settings/apiKey."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "searchApis": {
+            "main": "./lib/actions/searchApis.js",
+            "title": "Retrieves a list of currently defined APIs in APIs.json format.",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchApis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getOwnerApis": {
+            "main": "./lib/actions/getOwnerApis.js",
+            "title": "Retrieves an APIs.json listing of all APIs defined for this owner",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getOwnerApis.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteApi": {
+            "main": "./lib/actions/deleteApi.js",
+            "title": "Deletes the specified API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteApi.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getApiVersions": {
+            "main": "./lib/actions/getApiVersions.js",
+            "title": "Retrieves an APIs.json listing for all API versions for this owner and API",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getApiVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "saveDefinition": {
+            "main": "./lib/actions/saveDefinition.js",
+            "title": "Saves the provided Swagger definition",
+            "description": "Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definition itself.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/yaml": "application/yaml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/saveDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteCollaboration": {
+            "main": "./lib/actions/deleteCollaboration.js",
+            "title": "Deletes API's collaboration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteCollaboration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getCollaboration": {
+            "main": "./lib/actions/getCollaboration.js",
+            "title": "Gets API's collaboration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getCollaboration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "updateCollaboration": {
+            "main": "./lib/actions/updateCollaboration.js",
+            "title": "Updates API's collaboration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/updateCollaboration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteApiVersion": {
+            "main": "./lib/actions/deleteApiVersion.js",
+            "title": "Deletes a particular version of the specified API",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteApiVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDefinition": {
+            "main": "./lib/actions/getDefinition.js",
+            "title": "Retrieves the Swagger definition for the specified API and version",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getApiComments": {
+            "main": "./lib/actions/getApiComments.js",
+            "title": "Returns comments for the specified API version",
+            "description": "Returns all the comments and replies added by collaborators in the specified API version.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getApiComments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getJsonDefinition": {
+            "main": "./lib/actions/getJsonDefinition.js",
+            "title": "Retrieves the Swagger definition for the specified API and version in JSON format",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getJsonDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getYamlDefinition": {
+            "main": "./lib/actions/getYamlDefinition.js",
+            "title": "Retrieves the Swagger definition for the specified API and version in YAML format",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getYamlDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "searchDomains": {
+            "main": "./lib/actions/searchDomains.js",
+            "title": "Retrieves a list of currently defined domains in APIs.json format",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getOwnerDomains": {
+            "main": "./lib/actions/getOwnerDomains.js",
+            "title": "Retrieves an APIs.json listing of all domains defined for this owner",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getOwnerDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteDomain": {
+            "main": "./lib/actions/deleteDomain.js",
+            "title": "Deletes the specified domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomainVersions": {
+            "main": "./lib/actions/getDomainVersions.js",
+            "title": "Retrieves an APIs.json listing for all domain versions for this owner and domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomainVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "saveDomainDefinition": {
+            "main": "./lib/actions/saveDomainDefinition.js",
+            "title": "Saves the provided Swagger definition of a domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "application/yaml": "application/yaml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/saveDomainDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "deleteDomainVersion": {
+            "main": "./lib/actions/deleteDomainVersion.js",
+            "title": "Deletes a particular version of the specified domain",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/deleteDomainVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomainDefinition": {
+            "main": "./lib/actions/getDomainDefinition.js",
+            "title": "Retrieves the Swagger definition for the specified domain and version",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomainDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomainComments": {
+            "main": "./lib/actions/getDomainComments.js",
+            "title": "Returns comments for the specified domain version",
+            "description": "Returns all the comments and replies added by collaborators in the specified domain version.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomainComments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomainJsonDefinition": {
+            "main": "./lib/actions/getDomainJsonDefinition.js",
+            "title": "Retrieves the definition for the specified domain and version in JSON format",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomainJsonDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDomainYamlDefinition": {
+            "main": "./lib/actions/getDomainYamlDefinition.js",
+            "title": "Retrieves the definition for the specified domain and version in YAML format",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDomainYamlDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "searchApisAndDomains": {
+            "main": "./lib/actions/searchApisAndDomains.js",
+            "title": "Retrieves a list of currently defined APIs and Domains in APIs.json format",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchApisAndDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

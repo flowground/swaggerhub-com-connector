@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "owner": {
+            "required": true,
+            "type": "string"
+        },
+        "domain": {
+            "required": true,
+            "type": "string"
+        },
+        "version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
